@@ -83,7 +83,7 @@ ${"info".blue} Color legend :
 
   //   info Color legend :
 
-  const gradleDependencyUpdateArgs = ["dependencyUpdates", "-DoutputFormatter=json", "-DoutputDir=build/dependencyUpdates"];
+  const gradleDependencyUpdateArgs = ["dependencyUpdates", "-DoutputFormatter=json", "-DoutputDir=ps_build"];
   const gradleDependencyUpdateResolution = argv.resolution;
   if (gradleDependencyUpdateResolution) {
     gradleDependencyUpdateArgs.push(`-Drevision=${gradleDependencyUpdateResolution}`);
@@ -286,7 +286,7 @@ function findOutdatedDependencies() {
 }
 
 function findUpgradeJsonReportFiles() {
-  const reportJsonPath = "build/dependencyUpdates/report.json";
+  const reportJsonPath = "ps_build/report.json";
   const upgradeReportFiles = [];
   if (existsSync(reportJsonPath)) {
     upgradeReportFiles.push(reportJsonPath);
@@ -301,7 +301,7 @@ function findUpgradeJsonReportFiles() {
 }
 
 function informUserAboutInstallingUpdatePlugin(exitCode) {
-  const newestVersion = "0.39.0";
+  const newestVersion = "0.42.0";
 
   console.log(`Error executing gradle dependency updates (StatusCode=${exitCode})`.bgRed);
   console.log(
