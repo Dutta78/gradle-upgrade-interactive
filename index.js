@@ -83,7 +83,7 @@ ${"info".blue} Color legend :
 
   //   info Color legend :
 
-  const gradleDependencyUpdateArgs = ["dependencyUpdates", "-DoutputFormatter=json", "-DoutputDir=ps_build"];
+  const gradleDependencyUpdateArgs = ["dependencyUpdates", "-DoutputFormatter=json", "-DoutputDir=ts_build"];
   const gradleDependencyUpdateResolution = argv.resolution;
   if (gradleDependencyUpdateResolution) {
     gradleDependencyUpdateArgs.push(`-Drevision=${gradleDependencyUpdateResolution}`);
@@ -286,7 +286,7 @@ function findOutdatedDependencies() {
 }
 
 function findUpgradeJsonReportFiles() {
-  const reportJsonPath = "ps_build/report.json";
+  const reportJsonPath = "ts_build/report.json";
   const upgradeReportFiles = [];
   if (existsSync(reportJsonPath)) {
     upgradeReportFiles.push(reportJsonPath);
